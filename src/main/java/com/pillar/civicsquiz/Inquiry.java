@@ -9,9 +9,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "quiz")
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
-        allowGetters = true)
 
 public class Inquiry implements Serializable {
     @Id
@@ -24,4 +21,27 @@ public class Inquiry implements Serializable {
     @NotBlank
     private String answer;
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

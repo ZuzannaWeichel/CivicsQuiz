@@ -20,4 +20,9 @@ public class InquiryController {
     public List<Inquiry> getAllInquiries(){
         return inquiryRepository.findAll();
     }
+
+    @GetMapping("/test")
+    public String getTest(){
+        return "Test works! :D";
+    }
 }
