@@ -1,5 +1,10 @@
 language: java
-script:
-  
+deploy:
+  provider: script
+  script: bash database/create_civicsQuiz_db.sh
+  on:
+    branch: theBeginnings
+script:  
   - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
+  - cd 
   - mvn spring-boot:run
