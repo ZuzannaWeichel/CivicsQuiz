@@ -1,0 +1,5 @@
+language: java
+script:
+  
+  - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
+  - mvn spring-boot:run

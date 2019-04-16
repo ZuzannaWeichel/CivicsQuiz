@@ -55,6 +55,14 @@ public class Inquiry implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Inquiry{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Inquiry)) return false;

@@ -41,6 +41,7 @@ public class IntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
+
     @Test
     public void saveOneAndViewTheOne() throws Exception {
         Inquiry firstQuestion = new Inquiry("What is the supreme law of the land?", "the Constitution");
@@ -53,14 +54,15 @@ public class IntegrationTest {
                 .andExpect(status().isOk());
 
         MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
-//                .andDo(mvcResult -> {
-//                    System.out.println(mvcResult.getResponse().getStatus());
-//                    System.out.println(mvcResult.getResponse().getContentAsString());
-//                })
                 .andReturn();
 
         Inquiry returnedInquiry = mapper.readValue(result.getResponse().getContentAsString(),Inquiry.class);
         System.out.println(returnedInquiry.getQuestion());
+
+        firstQuestion.setId(1L);
+        System.out.println("first Q"+ firstQuestion.getId()+", "+firstQuestion.getQuestion()+", "+firstQuestion.getAnswer());
+        System.out.println("first Q"+ returnedInquiry.getId()+", "+returnedInquiry.getQuestion()+", "+returnedInquiry.getAnswer());
+
         assertEquals(firstQuestion, returnedInquiry);
     }
 
