@@ -23,15 +23,15 @@ public class Inquiry implements Serializable {
 
     public Inquiry() {
     }
-    public Inquiry(@NotBlank String question, @NotBlank String answer) {
+    public Inquiry( String question,  String answer) {
         this.question = question;
         this.answer = answer;
     }
-//    public Inquiry(Long id, @NotBlank String question, @NotBlank String answer) {
-//        this.id = id;
-//        this.question = question;
-//        this.answer = answer;
-//    }
+    public Inquiry(Long id, @NotBlank String question, @NotBlank String answer) {
+        this.id = id;
+        this.question = question;
+        this.answer = answer;
+    }
 
     public String getQuestion() {
         return question;

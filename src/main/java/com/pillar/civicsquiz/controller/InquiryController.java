@@ -16,10 +16,10 @@ public class InquiryController {
     @Autowired
     InquiryRepository inquiryRepository;
 
-//    @GetMapping("/test")
-//    public String getTest(){
-//        return "Test works! :D";
-//    }
+    @GetMapping("/test")
+    public String getTest(){
+        return "Test works! :D";
+    }
 
     @GetMapping("/inquiries")
     public List<Inquiry> getAllInquiries(){
@@ -28,11 +28,12 @@ public class InquiryController {
 
     @GetMapping("/inquiry/{id}")
     public Inquiry getInquiryById(@PathVariable Long id) {
+        System.out.println("We are here at the CONTROLLER :P and id is: "+id);
         return inquiryRepository.getOne(id);
     }
 
     @ResponseBody
-    @PostMapping("/inquiries")
+    @PostMapping("/save")
     public void saveInquiry(@RequestBody Inquiry inquiry) {
         inquiryRepository.save(inquiry);
     }

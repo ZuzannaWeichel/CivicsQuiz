@@ -1,19 +1,19 @@
-package com.pillar.civicsquiz;
-
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.jdbc.datasource.init.DataSourceInitializer;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
-
+//package com.pillar.civicsquiz;
+//
+//import org.hibernate.SessionFactory;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.boot.autoconfigure.domain.EntityScan;
+//import org.springframework.boot.jdbc.DataSourceBuilder;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.PropertySource;
+//import org.springframework.jdbc.datasource.init.DataSourceInitializer;
+//import org.springframework.orm.hibernate5.HibernateTransactionManager;
+//import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+//import org.springframework.transaction.annotation.EnableTransactionManagement;
+//
+//import javax.sql.DataSource;
+//
 //@Configuration
 //@EntityScan("com.pillar.civicsquiz")
 //@EnableTransactionManagement

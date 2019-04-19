@@ -15,10 +15,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -43,8 +45,57 @@ public class IntegrationTest {
 
 
     @Test
+    public void retrieveOneQuestionFromDatabase() throws Exception{
+        Inquiry firstQuestion = new Inquiry(1L, "What is the supreme law of the land?", "the Constitution");
+        ObjectMapper mapper = new ObjectMapper();
+        MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        Inquiry returnedInquiry = mapper.readValue(result.getResponse().getContentAsString(),Inquiry.class);
+        assertEquals(firstQuestion, returnedInquiry);
+    }
+
+    @Test
+    public void retrieveAllQuestionsFromDatabase() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        MvcResult result = mockMvc.perform(get("/api/inquiries").accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        List listOfInquiries = mapper.readValue(result.getResponse().getContentAsString(),List.class);
+
+        assertEquals(5, listOfInquiries.size());
+    }
+
+    @Test
+    @DirtiesContext
+    public void saveANewInquiryToDatabase() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Inquiry newQuestion = new Inquiry(1L,"What is one right or freedom from the First Amendment?", "speech, religion, assembly, press, petition the government");
+        String content = mapper.writeValueAsString(newQuestion);
+        mockMvc.perform(post("/api/save")
+                .contentType(APPLICATION_JSON_UTF8)
+                .content(content))
+                .andExpect(status().isOk());
+        MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        Inquiry returnedInquiry = mapper.readValue(result.getResponse().getContentAsString(),Inquiry.class);
+       // newQuestion.setId(6L);
+        assertEquals(newQuestion, returnedInquiry);
+    }
+
+    @Test
+    @DirtiesContext
+    public void deleteInquiryFromDatabase() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .delete("/api/delete/{id}", 5)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @Ignore
     public void saveOneAndViewTheOne() throws Exception {
-        Inquiry firstQuestion = new Inquiry("What is the supreme law of the land?", "the Constitution");
+        Inquiry firstQuestion = new Inquiry(1L,"What is the supreme law of the land?", "the Constitution");
         ObjectMapper mapper = new ObjectMapper();
         String content = mapper.writeValueAsString(firstQuestion);
 
@@ -67,6 +118,7 @@ public class IntegrationTest {
     }
 
     @Test
+    @Ignore
     public void saveSecondInquiry_withNextId_automated() throws Exception {
         Inquiry secondQuestion = new Inquiry("What does the Constitution do?", "sets up the government, defines the government, protects basic rights of Americans");
         ObjectMapper mapper = new ObjectMapper();
