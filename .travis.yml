@@ -21,5 +21,4 @@ services:
 
 script:  
   - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
-  - cd 
-  - mvn test -B
+  - mvn test
