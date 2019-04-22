@@ -1,4 +1,7 @@
 language: java
+jdk:
+  - oraclejdk8
+
 # blocklist
 branches:
   except:
@@ -9,12 +12,14 @@ branches:
 branches:
   only: 
   - theBeginnings
-# deploy:
-#   provider: script
-#   script: bash database/create_civicsQuiz_db.sh
-#   on:
-#     branch: theBeginnings
+
+before_install:
+  - ./Users/zuzanna/Development/civics-quiz/database/create_civicsQuiz_db.sh
+
+services:
+  - mysql
+
 script:  
   - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
   - cd 
-  - mvn spring-boot:run
+  - mvn test -B
