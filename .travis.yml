@@ -2,18 +2,18 @@ language: java
 # blocklist
 branches:
   except:
-  - develop
+    - master
+    - develop
 
 # safelist
 branches:
-  only:
-  - master
+  only: 
   - theBeginnings
-deploy:
-  provider: script
-  script: bash database/create_civicsQuiz_db.sh
-  on:
-    branch: theBeginnings
+# deploy:
+#   provider: script
+#   script: bash database/create_civicsQuiz_db.sh
+#   on:
+#     branch: theBeginnings
 script:  
   - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
   - cd 
