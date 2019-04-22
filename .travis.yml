@@ -5,13 +5,13 @@ jdk:
 # blocklist
 branches:
   except:
-    - master
+    - theBeginnings
     - develop
 
 # safelist
 branches:
   only: 
-  - theBeginnings
+  - master
 
 before_install:
   - mysql -u root 
