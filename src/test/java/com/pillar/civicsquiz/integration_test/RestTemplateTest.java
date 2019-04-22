@@ -30,4 +30,13 @@ public class RestTemplateTest {
         }
         assertEquals(5, inquiries.size());
     }
+
+    @Test
+    public void testGetOneInquiry(){
+        Inquiry expected = new Inquiry(1L, "What is the supreme law of the land?","the Constitution");
+        ResponseEntity<Inquiry> responseEntity =
+                restTemplate.getForEntity(ROOT_URL+"/api/inquiry/1", Inquiry.class);
+        Inquiry actual = responseEntity.getBody();
+        assertEquals( expected,actual);
+    }
 }

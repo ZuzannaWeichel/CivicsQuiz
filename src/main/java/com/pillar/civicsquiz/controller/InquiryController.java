@@ -28,7 +28,6 @@ public class InquiryController {
 
     @GetMapping("/inquiry/{id}")
     public Inquiry getInquiryById(@PathVariable Long id) {
-        System.out.println("We are here at the CONTROLLER :P and id is: "+id);
         return inquiryRepository.getOne(id);
     }
 

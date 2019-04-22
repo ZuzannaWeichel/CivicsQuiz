@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.pillar.civicsquiz.CivicsQuizApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in com.pillar.civicsquiz.CivicsQuizApplicationTests
-understanding_getMapping(com.pillar.civicsquiz.CivicsQuizApplicationTests)  Time elapsed: 0.01 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[Test works! :D]> but was:<[]>
-	at com.pillar.civicsquiz.CivicsQuizApplicationTests.understanding_getMapping(CivicsQuizApplicationTests.java:28)
-

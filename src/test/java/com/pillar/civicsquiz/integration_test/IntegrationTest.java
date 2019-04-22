@@ -78,7 +78,6 @@ public class IntegrationTest {
         MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
                 .andReturn();
         Inquiry returnedInquiry = mapper.readValue(result.getResponse().getContentAsString(),Inquiry.class);
-       // newQuestion.setId(6L);
         assertEquals(newQuestion, returnedInquiry);
     }
 
@@ -92,51 +91,4 @@ public class IntegrationTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    @Ignore
-    public void saveOneAndViewTheOne() throws Exception {
-        Inquiry firstQuestion = new Inquiry(1L,"What is the supreme law of the land?", "the Constitution");
-        ObjectMapper mapper = new ObjectMapper();
-        String content = mapper.writeValueAsString(firstQuestion);
-
-        mockMvc.perform(post("/api/inquiries")
-                .contentType(APPLICATION_JSON_UTF8)
-                .content(content))
-                .andExpect(status().isOk());
-
-        MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
-                .andReturn();
-
-        Inquiry returnedInquiry = mapper.readValue(result.getResponse().getContentAsString(),Inquiry.class);
-        System.out.println(returnedInquiry.getQuestion());
-
-        firstQuestion.setId(1L);
-        System.out.println("first Q"+ firstQuestion.getId()+", "+firstQuestion.getQuestion()+", "+firstQuestion.getAnswer());
-        System.out.println("first Q"+ returnedInquiry.getId()+", "+returnedInquiry.getQuestion()+", "+returnedInquiry.getAnswer());
-
-        assertEquals(firstQuestion, returnedInquiry);
-    }
-
-    @Test
-    @Ignore
-    public void saveSecondInquiry_withNextId_automated() throws Exception {
-        Inquiry secondQuestion = new Inquiry("What does the Constitution do?", "sets up the government, defines the government, protects basic rights of Americans");
-        ObjectMapper mapper = new ObjectMapper();
-        String content = mapper.writeValueAsString(secondQuestion);
-
-        mockMvc.perform(post("/api/inquiries")
-                .contentType(APPLICATION_JSON_UTF8)
-                .content(content))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @Ignore
-    public void whenCallingGetAllInquiries_returnTheCurrentInquiries() throws Exception {
-        List<Inquiry> listOfAllInquiries = new ArrayList<>();
-        MvcResult resultMock = mockMvc.perform(get("/api/inquiries"))
-                .andReturn();
-        String result =  resultMock.getResponse().getContentAsString();
-        assertEquals(listOfAllInquiries, result);
-    }
 }

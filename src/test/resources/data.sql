@@ -1,5 +1,4 @@
 delete from quiz;
-SET GLOBAL time_zone = '+3:00';
 
 insert into quiz (id,question, answer) values
 (1,'What is the supreme law of the land?', 'the Constitution' ),
