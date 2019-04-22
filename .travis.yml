@@ -14,7 +14,7 @@ branches:
   - theBeginnings
 
 before_install:
-  - /civics-quiz/database/create_civicsQuiz_db.sh
+  - mysql -e 'CREATE DATABASE quiz_app;'
 
 services:
   - mysql
