@@ -2,17 +2,6 @@ language: java
 jdk:
   - oraclejdk8
 
-# blocklist
-branches:
-  except:
-    - theBeginnings
-    - develop
-
-# safelist
-branches:
-  only: 
-  - master
-
 before_install:
   - mysql -u root 
   DROP DATABASE IF EXISTS quiz_app;
