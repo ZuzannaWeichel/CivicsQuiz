@@ -14,7 +14,9 @@ branches:
   - theBeginnings
 
 before_install:
-  - mysql -e 'CREATE DATABASE quiz_app;'
+  BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  - mysql -u root < "$BASEDIR/dropdb.sql"
+  - mysql -u root < "$BASEDIR/user_and_database.sql"
 
 services:
   - mysql
