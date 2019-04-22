@@ -14,7 +14,7 @@ branches:
   - theBeginnings
 
 before_install:
-  - mysql -u root < "database/dropdb.sql"
+  # - mysql -u root < "database/dropdb.sql"
   - mysql -u root < "database/user_and_database.sql"
 
 services:
