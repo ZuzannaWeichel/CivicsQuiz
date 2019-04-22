@@ -14,9 +14,8 @@ branches:
   - theBeginnings
 
 before_install:
-  BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-  - mysql -u root < "$BASEDIR/dropdb.sql"
-  - mysql -u root < "$BASEDIR/user_and_database.sql"
+  - mysql -u root < "database/dropdb.sql"
+  - mysql -u root < "database/user_and_database.sql"
 
 services:
   - mysql
