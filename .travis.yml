@@ -3,8 +3,8 @@ jdk:
   - oraclejdk8
 
 before_install:
-  - mysql -u root -e "DROP DATABASE IF EXISTS quiz_app";
-  - mysql -u root -e "DROP USER IF EXISTS 'civicsQuiz'@'localhost'";
+  - mysql -u root -e "DROP DATABASE quiz_app";
+  - mysql -u root -e "DROP USER 'civicsQuiz'@'localhost'";
   - mysql -u root -e "CREATE DATABASE quiz_app";
   - mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED WITH mysql_native_password BY 'usa'";
   - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost'";
