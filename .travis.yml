@@ -14,8 +14,13 @@ branches:
   - theBeginnings
 
 before_install:
-  # - mysql -u root < "database/dropdb.sql"
-  - mysql -u root < "database/user_and_database.sql"
+  - mysql -u root 
+  DROP DATABASE IF EXISTS quiz_app;
+  DROP USER IF EXISTS 'civicsQuiz'@'localhost';
+  CREATE DATABASE quiz_app;
+  CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED WITH mysql_native_password BY 'usa';
+  GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost';
+  FLUSH PRIVILEGES;
 
 services:
   - mysql
