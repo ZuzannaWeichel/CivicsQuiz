@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class InquiryController {
@@ -16,10 +16,12 @@ public class InquiryController {
     @Autowired
     InquiryRepository inquiryRepository;
 
+
     @GetMapping("/test")
     public String getTest(){
         return "Test works! :D";
     }
+
 
     @GetMapping("/inquiries")
     public List<Inquiry> getAllInquiries(){
