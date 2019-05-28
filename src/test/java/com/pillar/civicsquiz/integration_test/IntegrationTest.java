@@ -46,7 +46,7 @@ public class IntegrationTest {
 
     @Test
     public void retrieveOneQuestionFromDatabase() throws Exception{
-        Inquiry firstQuestion = new Inquiry(1L, "What is the supreme law of the land?", "the Constitution");
+        Inquiry firstQuestion = new Inquiry(1L, "What is the supreme law of the land?", "the Constitution","American Government", "Principles of American Democracy");
         ObjectMapper mapper = new ObjectMapper();
         MvcResult result = mockMvc.perform(get("/api/inquiry/{id}", 1).accept(MediaType.APPLICATION_JSON))
                 .andReturn();
@@ -69,7 +69,7 @@ public class IntegrationTest {
     @DirtiesContext
     public void saveANewInquiryToDatabase() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        Inquiry newQuestion = new Inquiry(1L,"What is one right or freedom from the First Amendment?", "speech, religion, assembly, press, petition the government");
+        Inquiry newQuestion = new Inquiry(1L,"What is one right or freedom from the First Amendment?", "speech, religion, assembly, press, petition the government","American Government", "Principles of American Democracy");
         String content = mapper.writeValueAsString(newQuestion);
         mockMvc.perform(post("/api/save")
                 .contentType(APPLICATION_JSON_UTF8)

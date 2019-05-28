@@ -33,7 +33,7 @@ public class RestTemplateTest {
 
     @Test
     public void testGetOneInquiry(){
-        Inquiry expected = new Inquiry(1L, "What is the supreme law of the land?","the Constitution");
+        Inquiry expected = new Inquiry(1L, "What is the supreme law of the land?","the Constitution","American Government", "Principles of American Democracy");
         ResponseEntity<Inquiry> responseEntity =
                 restTemplate.getForEntity(ROOT_URL+"/api/inquiry/1", Inquiry.class);
         Inquiry actual = responseEntity.getBody();

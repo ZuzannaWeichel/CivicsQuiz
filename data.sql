@@ -6,4 +6,4 @@ insert into quiz (id, question, answer, category, subcategory) values
 (3, 'The idea of self-government is in the first three words of the Constitution. What are these words?', 'We the People','American Government', 'Principles of American Democracy'),
 (4, 'What is an amendment?', 'a change (to the Constitution), an addition (to the Constitution)','American Government', 'Principles of American Democracy'),
 (5, 'What do we call the first ten amendments to the Constitution?', 'the Bill of Rights','American Government', 'Principles of American Democracy');
-
+(6, 'What is one right or freedom from the First Amendment?', 'speech, religion, assembly, press, petition the government','American Government', 'Principles of American Democracy')

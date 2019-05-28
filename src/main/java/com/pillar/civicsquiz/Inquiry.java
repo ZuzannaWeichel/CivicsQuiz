@@ -20,33 +20,52 @@ public class Inquiry implements Serializable {
     private String question;
     @Column (nullable = false)
     private String answer;
+    @Column (nullable = false)
+    private String category;
+    @Column (nullable = false)
+    private String subcategory;
 
     public Inquiry() {
     }
-    public Inquiry( String question,  String answer) {
+    public Inquiry( String question,  String answer, String category, String subcategory) {
         this.question = question;
         this.answer = answer;
+        this.category = category;
+        this.subcategory = subcategory;
     }
-    public Inquiry(Long id, @NotBlank String question, @NotBlank String answer) {
+    public Inquiry(Long id, @NotBlank String question, @NotBlank String answer, String category, String subcategory) {
         this.id = id;
         this.question = question;
         this.answer = answer;
+        this.category = category;
+        this.subcategory = subcategory;
     }
 
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public String getSubcategory() {
+        return subcategory;
+    }
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
+    }
     public String getQuestion() {
         return question;
     }
     public void setQuestion(String question) {
         this.question = question;
     }
-
     public String getAnswer() {
         return answer;
     }
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
     public Long getId() {
         return id;
     }
