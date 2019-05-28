@@ -43,6 +43,11 @@ public class IntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
+    final int ALL_QUERIES = 7;
+    final int GOVERNMENT = 6;
+    final int HISTORY = 0;
+    final int INTEGRATED = 0;
+
 
     @Test
     public void retrieveOneQuestionFromDatabase() throws Exception{
@@ -62,8 +67,19 @@ public class IntegrationTest {
                 .andReturn();
         List listOfInquiries = mapper.readValue(result.getResponse().getContentAsString(),List.class);
 
-        assertEquals(5, listOfInquiries.size());
+        assertEquals(ALL_QUERIES, listOfInquiries.size());
     }
+
+    @Test
+    public void retriveAllGovernmentQuestions() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        MvcResult result = mockMvc.perform(get("/api/inquiries/government").accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        List listOfInquiries = mapper.readValue(result.getResponse().getContentAsString(),List.class);
+
+        assertEquals(GOVERNMENT, listOfInquiries.size());
+    }
+
 
     @Test
     @DirtiesContext

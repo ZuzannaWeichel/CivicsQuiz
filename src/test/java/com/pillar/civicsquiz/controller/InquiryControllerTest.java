@@ -20,10 +20,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(MockitoJUnitRunner.class)
 public class InquiryControllerTest {
-
-//    @Autowired
-//    private MockMvc mockMvc;
-
+    
     @Mock
     InquiryRepository repository;
 
@@ -39,7 +36,7 @@ public class InquiryControllerTest {
     }
 
     @Test
-    public void returnAllresult(){
+    public void returnAllResults(){
         ArrayList mockList = mock(ArrayList.class);
         when(repository.findAll()).thenReturn(mockList);
 

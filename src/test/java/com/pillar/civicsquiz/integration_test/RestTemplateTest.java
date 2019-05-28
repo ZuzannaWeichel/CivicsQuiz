@@ -17,8 +17,9 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class RestTemplateTest {
 
-    private static final String ROOT_URL = "http://localhost:8080";
+    private static final String ROOT_URL = "http://localhost:8888";
     RestTemplate restTemplate = new RestTemplate();
+    IntegrationTest integrationTest;
 
     @Test
     public void testGetAllInquiries(){
@@ -28,7 +29,7 @@ public class RestTemplateTest {
         for (Inquiry i : inquiries) {
             System.out.println(i.toString());
         }
-        assertEquals(5, inquiries.size());
+        assertEquals(integrationTest.ALL_QUERIES, inquiries.size());
     }
 
     @Test

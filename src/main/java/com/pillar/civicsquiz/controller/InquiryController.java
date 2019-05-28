@@ -28,6 +28,11 @@ public class InquiryController {
         return inquiryRepository.findAll();
     }
 
+    @GetMapping("/inquiries/government")
+   public List<Inquiry> getGovernmentCategory(){
+        return inquiryRepository.getAllByGovernmentCategory();
+    }
+
     @GetMapping("/inquiry/{id}")
     public Inquiry getInquiryById(@PathVariable Long id) {
         return inquiryRepository.getOne(id);
@@ -43,4 +48,6 @@ public class InquiryController {
     public void deleteInquiry(@PathVariable Long id) {
         inquiryRepository.deleteById(id);
     }
+
+
 }
