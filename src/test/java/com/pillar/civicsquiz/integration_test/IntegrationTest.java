@@ -43,10 +43,22 @@ public class IntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    final int ALL_QUERIES = 7;
-    final int GOVERNMENT = 6;
-    final int HISTORY = 0;
-    final int INTEGRATED = 0;
+    final int ALL_QUERIES = 100;
+    final int GOVERNMENT = 57;
+    final int HISTORY = 30;
+    final int INTEGRATED = 12;
+
+    final int GOV_DEMOCRACY = 12;
+    final int GOV_SYSTEMS = 34;
+    final int GOV_RIGHTS = 10;
+
+    final int HIST_COLONIAL = 13;
+    final int HIST_1800S = 7;
+    final int HIST_RECENT = 10;
+
+    final int INTG_GEOGRAPHY = 8;
+    final int INTG_SYMBOLS = 3;
+    final int INTG_HOLIDAYS =2;
 
 
     @Test
@@ -71,7 +83,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void retriveAllGovernmentQuestions() throws Exception {
+    public void retrieveAllGovernmentQuestions() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         MvcResult result = mockMvc.perform(get("/api/inquiries/government").accept(MediaType.APPLICATION_JSON))
                 .andReturn();
@@ -80,6 +92,15 @@ public class IntegrationTest {
         assertEquals(GOVERNMENT, listOfInquiries.size());
     }
 
+    @Test
+    public void retrieveAllHistoryQuestions() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        MvcResult result = mockMvc.perform(get("/api/inquiries/history").accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        List listOfInquiries = mapper.readValue(result.getResponse().getContentAsString(),List.class);
+
+        assertEquals(HISTORY, listOfInquiries.size());
+    }
 
     @Test
     @DirtiesContext

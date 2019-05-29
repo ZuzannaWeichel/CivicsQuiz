@@ -16,21 +16,24 @@ public class InquiryController {
     @Autowired
     InquiryRepository inquiryRepository;
 
-
-    @GetMapping("/test")
-    public String getTest(){
-        return "Test works! :D";
-    }
-
-
     @GetMapping("/inquiries")
     public List<Inquiry> getAllInquiries(){
         return inquiryRepository.findAll();
     }
 
     @GetMapping("/inquiries/government")
-   public List<Inquiry> getGovernmentCategory(){
+    public List<Inquiry> getGovernmentCategory(){
         return inquiryRepository.getAllByGovernmentCategory();
+    }
+
+    @GetMapping("/inquiries/history")
+    public List<Inquiry> getHistoryCategory(){
+        return inquiryRepository.getAllByHistoryCategory();
+    }
+
+    @GetMapping("/inquiries/integrated")
+    public List<Inquiry> getIntegratedCategory(){
+        return inquiryRepository.getAllByIntegratedCategory();
     }
 
     @GetMapping("/inquiry/{id}")
@@ -48,6 +51,5 @@ public class InquiryController {
     public void deleteInquiry(@PathVariable Long id) {
         inquiryRepository.deleteById(id);
     }
-
 
 }

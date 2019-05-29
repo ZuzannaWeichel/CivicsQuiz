@@ -44,6 +44,30 @@ public class InquiryControllerTest {
     }
 
     @Test
+    public void returnAllGovernmentResults(){
+        ArrayList mockList = mock(ArrayList.class);
+        when(repository.getAllByGovernmentCategory()).thenReturn(mockList);
+
+        assertEquals(mockList, controller.getGovernmentCategory());
+    }
+
+    @Test
+    public void returnAllHistoryResults(){
+        ArrayList mockList = mock(ArrayList.class);
+        when(repository.getAllByHistoryCategory()).thenReturn(mockList);
+
+        assertEquals(mockList, controller.getHistoryCategory());
+    }
+
+    @Test
+    public void returnAllIntegratedResults(){
+        ArrayList mockList = mock(ArrayList.class);
+        when(repository.getAllByIntegratedCategory()).thenReturn(mockList);
+
+        assertEquals(mockList, controller.getIntegratedCategory());
+    }
+
+    @Test
     public void getSingleInquiry(){
         when(repository.getOne(1L)).thenReturn(inquiry1);
 

@@ -19,17 +19,14 @@ public class RestTemplateTest {
 
     private static final String ROOT_URL = "http://localhost:8888";
     RestTemplate restTemplate = new RestTemplate();
-    IntegrationTest integrationTest;
 
     @Test
     public void testGetAllInquiries(){
         ResponseEntity<Inquiry[]> responseEntity =
                 restTemplate.getForEntity(ROOT_URL+"/api/inquiries", Inquiry[].class);
         List<Inquiry> inquiries = Arrays.asList(responseEntity.getBody());
-        for (Inquiry i : inquiries) {
-            System.out.println(i.toString());
-        }
-        assertEquals(integrationTest.ALL_QUERIES, inquiries.size());
+
+        assertEquals(100, inquiries.size());
     }
 
     @Test
