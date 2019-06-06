@@ -13,5 +13,18 @@ Rest API containing Civics (History and Government) Questions for the Naturaliza
     * ```idea pom.xml```  
   * to run test
     * ```mvn test```
+* ### endpoints
+```
+GET
+/api/inquiries - to get all
+/api/inquiries/government -  American Government category
+/api/inquiries/history - American History category
+/api/inquiries/integrated - Integrated Civics category
+/api/inquiry/{id} - inquiry by ID 
 
+POST
+/api/save - save inquiry
 
+DELETE
+/api/delete/{id} - delete by ID
+```

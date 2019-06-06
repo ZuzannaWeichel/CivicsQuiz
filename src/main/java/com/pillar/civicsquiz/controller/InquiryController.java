@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -18,22 +19,30 @@ public class InquiryController {
 
     @GetMapping("/inquiries")
     public List<Inquiry> getAllInquiries(){
-        return inquiryRepository.findAll();
+        List<Inquiry> all = inquiryRepository.findAll();
+        Collections.shuffle(all);
+        return all;
     }
 
     @GetMapping("/inquiries/government")
     public List<Inquiry> getGovernmentCategory(){
-        return inquiryRepository.getAllByGovernmentCategory();
+        List<Inquiry> all = inquiryRepository.getAllByGovernmentCategory();
+        Collections.shuffle(all);
+        return all;
     }
 
     @GetMapping("/inquiries/history")
     public List<Inquiry> getHistoryCategory(){
-        return inquiryRepository.getAllByHistoryCategory();
+        List<Inquiry> all = inquiryRepository.getAllByHistoryCategory();
+        Collections.shuffle(all);
+        return all;
     }
 
     @GetMapping("/inquiries/integrated")
     public List<Inquiry> getIntegratedCategory(){
-        return inquiryRepository.getAllByIntegratedCategory();
+        List<Inquiry> all = inquiryRepository.getAllByIntegratedCategory();
+        Collections.shuffle(all);
+        return all;
     }
 
     @GetMapping("/inquiry/{id}")
