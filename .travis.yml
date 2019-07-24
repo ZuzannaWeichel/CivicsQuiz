@@ -6,7 +6,7 @@ before_install:
 - mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED BY 'usa'";
 - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost'";
 - mysql -u root -e "FLUSH PRIVILEGES";
-- mysql -u root -e "CREATE Table quiz";
+- mysql -u root -e "CREATE TABLE quiz (id, question, answer, category, subcategory)";
 - mysql -u root -e "insert into quiz (id, question, answer, category, subcategory) values (1,'What is the supreme law of the land?', 'the Constitution','American Government', 'Principles of American Democracy'),(2, 'What does the Constitution do?', 'sets up the government|defines the government|protects basic rights of Americans','American Government', 'Principles of American Democracy')";
 services:
 - mysql
