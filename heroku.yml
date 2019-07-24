@@ -1,7 +1,3 @@
-setup:
-  addons:
-    - plan: heroku-cleardb
-      as: DATABASE
 run:
   asset-syncer:
     command:
