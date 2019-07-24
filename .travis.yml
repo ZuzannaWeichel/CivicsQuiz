@@ -1,3 +1,4 @@
+quiz_app
 language: java
 jdk:
 - oraclejdk12
