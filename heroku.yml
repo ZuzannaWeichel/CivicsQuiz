@@ -1,0 +1,12 @@
+setup:
+  addons:
+    - plan: heroku-cleardb
+      as: DATABASE
+run:
+  asset-syncer:
+    command:
+      - mysql -u root -e "CREATE DATABASE quiz_app";
+      - mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED BY 'usa'";
+      - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost'";
+      - mysql -u root -e "FLUSH PRIVILEGES";
+      - mvn test
