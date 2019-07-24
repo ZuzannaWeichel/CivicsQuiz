@@ -1,6 +1,6 @@
 language: java
 jdk:
-- oraclejdk8
+- oraclejdk12
 before_install:
 - mysql -u root -e "CREATE DATABASE quiz_app";
 - mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED BY 'usa'";
