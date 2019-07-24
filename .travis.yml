@@ -1,18 +1,17 @@
 language: java
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 before_install:
-  # - mysql -u root -e "DROP DATABASE IF EXISTS quiz_app";
-  # - mysql -u root -e "DROP USER IF EXISTS 'civicsQuiz'@'localhost'";
-  - mysql -u root -e "CREATE DATABASE quiz_app";
-  - mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED BY 'usa'";
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost'";
-  - mysql -u root -e "FLUSH PRIVILEGES";
-
+- mysql -u root -e "CREATE DATABASE quiz_app";
+- mysql -u root -e "CREATE USER 'civicsQuiz'@'localhost' IDENTIFIED BY 'usa'";
+- mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'civicsQuiz'@'localhost'";
+- mysql -u root -e "FLUSH PRIVILEGES";
 services:
-  - mysql
-
-script:  
-  - cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
-  - mvn test
+- mysql
+script:
+- cd /home/travis/build/zuzannaweichel-accenture/CivicsQuiz
+- mvn test
+deploy:
+  provider: heroku
+  api_key:
+    secure: kLlFjqQ63ydLMHGsCSMXC8v5DjAVKScCtTgvBVXd6qPSUbe/20u/UrPFbF1yy7xCYPKIaiaJRTrDiUKtLHNFMUgU2IrHpXPkBVvX/6i5DR6yiC7kZKrAC9v7X/Bddysi2pN8ZOVnNY5Z3bKGqxROVTU1HMApwBHcVlEs+DJpvQddSfHrMMuFwaZxIIGFncitve+4qoY6TtZfojKR2bA8enATTVJgDRFVNSRiRMh14gcMrj87B/a5pYEmHlTZlAq2VGYvIlSvN2YAmHW5dsmn86eQodUyo3VVWJeo1JeOMYPrEwO1sAFhpFgP7EcnivuHr0iB2gssxP2u8ja3LyVGnBajO1wpvf515MD34ZHLqggzNAllGJY955FKZG3fvNXkeRC8XXksExfzqvy86mz65gWCUGT9vf9VbhxdsMN7UfLxeUJoWORrzpOjXOSScVmwz8AR4NXCzJ+ndL6edxda3c2V64YizdRVUhSLYBpOhOrWSi5Kpbe58+F2B0BQvQlbfO3sbdFb/4fiRrIx9iGHoAVzkj2LhrQr6YdJ1bA+bzUxFu1q2AsgX1GTES1C+79BmLNN24Bydm9qrbn+CsvQClaWg8M42ZI/PY+1uS1Q7KkyDDNbmojPkiTD7lco2jeZnVsHWGy4c4d/O8T5kyth6jMwTa8tX/Grf0E7mDhJRKk=
