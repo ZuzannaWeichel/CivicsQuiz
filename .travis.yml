@@ -16,5 +16,5 @@ deploy:
   api_key:
     secure: bW+4OEYN4da11odvb7cC2EzDUhcCwUDC56w4MFE13BJZwwBImFhYkOhxVywfYFtFcqr43fhXzogoFDQ/uAd4Ie3pyv80onhwxshCS73y2XKnV+N7627kCIFOxhRW+UQjWuqxTlx79yy16al6bj7ZrPZw92j9R/vo53GhQfWp05uJjguh4YKwH7AFI6z0l5SAH8Qg+V5j0qnlY6we+SPcERzncyzXfx5T4D50TmOV++HgbiM5gCvNU0WaA1sQOKJqZW4Q9U0FlAZ/bIZesRyPpHTQIIpDCtKc4gMGoKAuL/olUtNWSMU24mh6mzURfrSAjJO0DSjDRsahOLE13E6fMAMdObvlFU3S1vpRxKpYqhqa4pPQuKy2r8RxPeJwFno5BdKOdUXoZpVzLRWSBz7Xik0/2nsatTrOOdLmkhpKtrIFVFf/cr5LB3FTPDWZ1hEd95uGfO/hCw8yBrCvIbM4zi6n6nlsFa29pEFzwkHFDIw8dADihAV5eePzGXzjvityVYnRM1CDzhWifgtu5AzHP8TYWFOxYBwh1cPz/nmbfMc6RZsjAxYpJqUe434zcsPYk47AWa+HRKkAzxF2ynLQTBWdId+/p6yyEzymMWccyxr8A5pN6iU5Zy0YpMwGwRbc1+8y4y1MzNIZhwj2XE2FPrjSEggSk1nB4cru+WdcUbo=
   app: civics-quiz-api
-  command:
-    - mvn test
+#  command:
+#    - mvn test
